@@ -59,6 +59,13 @@ module.exports = {
                 text: 'Js',
                 link: '/js/',
                 children: [{
+                    text: 'Common',
+                    link: '/js/common/',
+                    children: [{
+                        text: 'Dropdown',
+                        link: '/js/common/dropdown.html'
+                    }]
+                }, {
                     text: 'Inputs',
                     link: '/js/inputs/',
                     children: [{
