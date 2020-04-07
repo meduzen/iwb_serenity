@@ -141,7 +141,12 @@ export default {
             type: Boolean,
             required: false,
             default: false
-        }
+        },
+        mobileBreakpoint: {
+            type: String,
+            required: false,
+            default: "to-desktop"
+        },
     },
     data() {
         return {
@@ -164,7 +169,7 @@ export default {
     mounted: function() {
         // Responsive Behavior
         /* istanbul ignore next */
-        this.$responsive.registerMediaQuery("to-desktop", () => {
+        this.$responsive.registerMediaQuery(this.mobileBreakpoint, () => {
             if(!document.documentElement.classList.contains("js-fullscreen") && this.listOpen){
                 this.documentScrollTop = (
                     document.scrollingElement ||

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import serenityDropdown from '../Serenity/Dropdown.vue';
+import serenityDropdown from '../../Serenity/Dropdown.vue';
 
 export default {
     components: {

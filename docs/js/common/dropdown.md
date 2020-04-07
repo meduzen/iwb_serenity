@@ -1,14 +1,19 @@
 # Dropdown
 
-Dropdown is a Vue.js component that display a "dropdown" below a toggle (the toggle is a button on wich you can apply the style you want).
+Dropdown is a Vue.js component that allow you to display content inside a contextual overlay triggered by a button.
+
+The content display inside the overlay can be anything you want, like a form, some text, etc.
 
 :::tip Note
-The Dropdown act like a "fullscren modal" below 992px.
+The Dropdown act like a "fullscren modal" on screen of width below desktop (992px) (This value can be overwrited by specifying the mobileBreakpoint props).
 :::
 
 ## Basic dropdown
+
+The content of the overlay is define what's inside the `default slot` of the component.
+
 <div class="sd-example">
-    <Example-DropdownBasic></Example-DropdownBasic>
+    <Example-Dropdown-DropdownBasic></Example-Dropdown-DropdownBasic>
 </div>
 
 ```html
@@ -30,6 +35,33 @@ The Dropdown act like a "fullscren modal" below 992px.
             class="button dropdown__footer-button">
         <span class="button__label">Apply</span>
         </button>
+    </template>
+</serenityDropdown>
+```
+
+## Dropdown With Footer
+
+You can add element in footer inside the overlay (in mobile fixed in the bottom) with the help of a conditional `footer slot`.
+
+<div class="sd-example">
+    <Example-Dropdown-DropdownFooter></Example-Dropdown-DropdownFooter>
+</div>
+
+```html
+<serenityDropdown toggleTitle="Dropdown With Footer Example" headerTitle="Dropdown title">
+    <div style="min-width:12.5rem;">
+        <div class="field">
+            <label
+                for="dropdownInputExample01"
+                class="field__label">
+                <span class="label__text">Dropdown Input</span>
+            </label>
+            <input type="text" class="input--text" id="dropdownInputExample01" />
+        </div>
+    </div>
+
+    <template slot="footer">
+        <button type="button" class="button button--primary">Apply</button>
     </template>
 </serenityDropdown>
 ```
@@ -75,7 +107,12 @@ The Dropdown act like a "fullscren modal" below 992px.
         type: Boolean,
         required: false,
         default: false
-    }
+    },
+    mobileBreakpoint: {
+        type: String,
+        required: false,
+        default: "to-desktop"
+    },
 }
 ```
 
@@ -126,3 +163,9 @@ The Dropdown act like a "fullscren modal" below 992px.
     *default: false*
 
     A boolean that define if a modal is currently open or not. Used to avoid layout issue if a modal is allreay open.
+
+* *mobileBreakpoint*:
+
+    *default: to-desktop*
+
+    A string representing a mediaQueries (listed inside plugins/responsive), use has a breakpoint by the component to define when the dropdown is considred mobile (fullscreen modal) or not.
