@@ -4,6 +4,7 @@
   "description": "Immoweb Front-end Framework",
   "main": "dist/js/serenity.min.js",
   "unpkg": "dist/js/serenity.min.js",
+  "typings": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm-run-all css js copy",
